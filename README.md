@@ -1,2 +1,3 @@
 # boc-test
-this is a test from Boc
+This is a test from Boc
+The project is based on odoo
