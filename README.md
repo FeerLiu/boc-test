@@ -1,2 +1,2 @@
 # boc-test
-boc test
+Init test
