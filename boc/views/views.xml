@@ -1,7 +1,6 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-<!--
     <record model="ir.ui.view" id="boc.list">
       <field name="name">boc list</field>
       <field name="model">boc.boc</field>
@@ -13,19 +12,16 @@
         </tree>
       </field>
     </record>
--->
 
     <!-- actions opening views on models -->
-<!--
     <record model="ir.actions.act_window" id="boc.action_window">
       <field name="name">boc window</field>
       <field name="res_model">boc.boc</field>
       <field name="view_mode">tree,form</field>
     </record>
--->
 
     <!-- server action to the one above -->
-<!--
+
     <record model="ir.actions.server" id="boc.action_server">
       <field name="name">boc server</field>
       <field name="model_id" ref="model_boc_boc"/>
@@ -38,21 +34,19 @@
         }
       </field>
     </record>
--->
 
     <!-- Top menu item -->
-<!--
+
     <menuitem name="boc" id="boc.menu_root"/>
--->
+
     <!-- menu categories -->
-<!--
+
     <menuitem name="Menu 1" id="boc.menu_1" parent="boc.menu_root"/>
     <menuitem name="Menu 2" id="boc.menu_2" parent="boc.menu_root"/>
--->
+
     <!-- actions -->
-<!--
+
     <menuitem name="List" id="boc.menu_1_list" parent="boc.menu_1"
               action="boc.action_window"/>
     <menuitem name="Server to list" id="boc" parent="boc.menu_2"
               action="boc.action_server"/>
--->
