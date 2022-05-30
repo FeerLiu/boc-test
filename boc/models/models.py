@@ -3,9 +3,9 @@
 # from odoo import models, fields, api
 
 
-# class boc-test(models.Model):
-#     _name = 'boc-test.boc-test'
-#     _description = 'boc-test.boc-test'
+# class boc(models.Model):
+#     _name = 'boc.boc'
+#     _description = 'boc.boc'
 
 #     name = fields.Char()
 #     value = fields.Integer()
