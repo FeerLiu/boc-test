@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
- from odoo import http
+from odoo import http
 
 
- class Boc-test(http.Controller):
-     @http.route('/boc-test/boc-test/', auth='public')
-     def index(self, **kw):
-         return "Hello, This is Boc-test"
+class Boc-test(http.Controller):
+    @http.route('/boc-test/boc-test/', auth='public')
+    def index(self, **kw):
+        return "Hello, This is Boc-test"
  #
  #    @http.route('/boc-test/boc-test/objects/', auth='public')
  #    def list(self, **kw):
