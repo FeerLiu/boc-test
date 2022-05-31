@@ -1,6 +1,5 @@
 [options]
-#addons_path = /home/it/boc-test/
-addons_path = C:\Users\CongfeiLiu\boc-test
+addons_path = /home/it/boc-test/
 admin_passwd = $pbkdf2-sha512$25000$8D5nTKm19t7bG8M4Zyxl7A$7Z/hvdg3zj551L5N/NPykkKPwVcKju/DWTppV3vA.7VpJv/yNtVuLEuBHZBCQ0Tkf/uQ3XzrOT5RIikuHq6SRg
 csv_internal_sep = ,
 db_host = False
