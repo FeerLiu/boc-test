@@ -1,6 +1,6 @@
 <odoo>
   <data>
-	  <!-- explicit list view definition -->
+	<!-- explicit list view definition -->
     <record model="ir.ui.view" id="boc.list">
       <field name="name">boc list</field>
       <field name="model">boc.boc</field>
@@ -12,7 +12,7 @@
             <button type="object" name="action_do_sth" string="Action button"/>
         </form>
       </field>
-	    </record>
+    </record>
 
       
     <!-- eula-->
@@ -21,9 +21,6 @@
       <field name="model">boc.eula</field>
       <field name="arch" type="xml">
         <form>
-          <!--header>
-            <field name="name"/>
-          </header-->
           <sheet>
             <field name="eulaContent"></field>
             <group col = '1'>
@@ -42,31 +39,6 @@
       </field>
     </record>
     
-
-    <!--user agree or disagree view -->
-    <record id="view_form_eula" model="ir.ui.view"> 
-            <field name="name">view_eula</field> 
-            <field name="model">boc.eula</field> 
-            <field name="arch" type="xml">
-              <form> 
-                    <header> 
-                      <field name="agree" widget="radio"/>
-                    </header>
-                    <list> 
-                        <field name="eulaContent">
-                            <attribute name="attrs">
-                              {'readonly': [('editable', '=', False)]}
-                            </attribute>
-                        </field>
-                    </list>
-                    <footer>
-                        <a href="/boc/" class="oe_button">I agree</a> 
-                        <a href="/web/session/logout?redirect=/web" class="oe_button oe_highlight">I disagree</a>
-                    </footer> 
-                </form>
-            </field>
-    </record>
-    
     <!--server action is triggered automatically-->
     <record id="eula_actions_server_trigger" model="ir.actions.server"> 
             <field name="name">sever action</field> 
@@ -81,16 +53,7 @@
                   'target': 'new'
               }
             </field>
-    </record>    
-
-    <!-- the view for action window--> 
-    <record id="eula_action_window" model="ir.actions.act_window">
-      <field name="name">Agreement</field>
-      <field name="res_model">boc.eula</field>
-      <field name="view_mode">tree,form</field>
-      <field name="view_id" ref="view_form_eula"></field>
-    </record>
-
+    </record>   
 
     <!--eula menu-->
     <menuitem id="main_eula_menu" name="EULA" sequence="0" action="eula_actions_server_trigger"/>
