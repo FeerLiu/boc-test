@@ -1,18 +1,18 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
+	  <!-- explicit list view definition -->
     <record model="ir.ui.view" id="boc.list">
       <field name="name">boc list</field>
       <field name="model">boc.boc</field>
       <field name="arch" type="xml">
-        <list>
+        <form>
             <field name="name"/>
             <field name="value"/>
             <field name="description"/>
             <button type="object" name="action_do_sth" string="Action button"/>
-        </list>
+        </form>
       </field>
-    </record>
+	    </record>
 
       
     <!-- eula-->
@@ -42,8 +42,6 @@
       </field>
     </record>
     
-    <!--eula menu-->
-    <menuitem id="main_eula_menu" name="EULA" sequence="0" action="eula_actions_server_trigger"/>
 
     <!--user agree or disagree view -->
     <record id="view_form_eula" model="ir.ui.view"> 
@@ -92,6 +90,10 @@
       <field name="view_mode">tree,form</field>
       <field name="view_id" ref="view_form_eula"></field>
     </record>
+
+
+    <!--eula menu-->
+    <menuitem id="main_eula_menu" name="EULA" sequence="0" action="eula_actions_server_trigger"/>
 
     <!--eula-->
   

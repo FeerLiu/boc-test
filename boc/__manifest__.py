@@ -27,9 +27,9 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'views/templates.xml',
         'data/eula_content.xml',
         'views/views.xml',
-        'views/templates.xml',
         #'views/template_test.xml',
     ],
     # only loaded in demonstration mode
