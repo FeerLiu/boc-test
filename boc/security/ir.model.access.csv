@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_boc_boc,boc.boc,model_boc_boc,base.group_user,1,1,1,1
+access_boc_m_test,boc.m_test,model_boc_m_test,base.group_user,1,1,1,1
+access_boc_eula,boc.eula,model_boc_eula,base.group_user,1,1,1,1

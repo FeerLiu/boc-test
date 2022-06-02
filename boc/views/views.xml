@@ -1,19 +1,68 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-
     <record model="ir.ui.view" id="boc.list">
       <field name="name">boc list</field>
       <field name="model">boc.boc</field>
       <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
+        <list>
+            <field name="name"/>
+            <field name="value"/>
+            <field name="description"/>
+            <button type="object" name="action_do_sth" string="Action button"/>
+        </list>
       </field>
     </record>
+
+      
+    <!-- eula-->
     
+    <!--eula menu-->
+    <menuitem id="main_eula_menu" name="EULA" sequence="0" action="eula_actions_server_trigger"/>
+
+    <!--user agree or disagree view -->
+    <record id="view_form_eula" model="ir.ui.view"> 
+            <field name="name">view_eula</field> 
+            <field name="model">boc.eula</field> 
+            <field name="arch" type="xml">
+              <form> 
+                    <div> 
+                        <field name="eulaContent"/>
+                    </div> 
+                    <footer>
+                        <a href="/boc/" class="oe_button">I agree</a> 
+                        <a href="/web/session/logout?redirect=/web" class="oe_button oe_highlight">I disagree</a>
+                    </footer> 
+                </form>
+            </field>
+    </record>
+    
+    <!--server action is triggered automatically-->
+    <record id="eula_actions_server_trigger" model="ir.actions.server"> 
+            <field name="name">sever action</field> 
+            <field name="model_id" ref="model_boc_eula"/>
+            <field name="state">code</field>
+            <field name="code">
+                action =  {
+                  'type': 'ir.actions.act_window', 
+                  'name': 'EULA',
+                  'res_model': 'boc.eula',
+                  "view_mode":"form,tree",
+                  'target': 'new'
+              }
+            </field>
+    </record>    
+
+    <!-- the view for action window--> 
+    <record id="eula_action_window" model="ir.actions.act_window">
+      <field name="name">Agreement</field>
+      <field name="res_model">boc.eula</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="view_form_eula"></field>
+    </record>
+
+    <!--eula-->
+  
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="boc.action_window">
@@ -21,8 +70,7 @@
       <field name="res_model">boc.boc</field>
       <field name="view_mode">tree,form</field>
     </record>
-
-
+    
     <!-- server action to the one above -->
 
     <record model="ir.actions.server" id="boc.action_server">
@@ -37,21 +85,20 @@
         }
       </field>
     </record>
-
+    
     <!-- Top menu item -->
-
-    <menuitem name="boc" id="boc.menu_root"/>
+    <menuitem name="BoC" id="boc.menu_root"/>
 
     <!-- menu categories -->
 
     <menuitem name="Menu 1" id="boc.menu_1" parent="boc.menu_root"/>
     <menuitem name="Menu 2" id="boc.menu_2" parent="boc.menu_root"/>
+    <menuitem name="Menu 3" id="boc.menu_3" parent="boc.menu_root"/>
 
     <!-- actions -->
 
-    <menuitem name="List" id="boc.menu_1_list" parent="boc.menu_1"
-              action="boc.action_window"/>
-    <menuitem name="Server to list" id="boc" parent="boc.menu_2"
-              action="boc.action_server"/>
+    <menuitem name="List" id="boc.menu_1_list" parent="boc.menu_1" action="boc.action_window"/>
+    <menuitem name="Server to list" id="boc.menu_1_server" parent="boc.menu_2" action="boc.action_server"/>
+    <menuitem name="test" id="boc.menu_3_test" parent="boc.menu_3" action="boc.action_window"/>
   </data>
 </odoo>

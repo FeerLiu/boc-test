@@ -1,0 +1,33 @@
+<odoo>
+
+    <template id="test">
+        <t t-call="website.layout">
+            <t t-set="title">BoC</t>
+            <div class="oe_structure">
+                <div class="container">
+                    <t t-foreach="m_test" t-as="mt">
+                        <p>
+                            <a t-attf-href="/test/{{ slug(mt) }}">
+                            <t t-esc="mt.name"/></a>
+                        </p>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="biography">
+        <t t-call="website.layout">
+            <t t-set="title">BoC</t>
+            <div class="oe_structure"/>
+            <div class="oe_structure">
+                <div class="container">
+                    <h3 t-field="object.name" />
+                    <p>Last modified: <i t-field="object.write_date" t-options='{"widget": "relative"}'/></p>
+                    <div t-field="object.biography"/>
+                </div>
+            </div>
+            <div class="oe_structure"/>
+        </t>
+    </template>
+</odoo>

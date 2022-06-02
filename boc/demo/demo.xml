@@ -26,5 +26,14 @@
             <field name="value">40</field>
           </record>
 -->
+          <record id="padilla" model="boc.m_test">
+            <field name="name">fei</field>
+          </record>
+          <record id="carroll" model="boc.m_test">
+              <field name="name">cong</field>
+          </record>
+          <record id="vaughn" model="boc.m_test">
+              <field name="name">liu</field>
+          </record>
     </data>
 </odoo>

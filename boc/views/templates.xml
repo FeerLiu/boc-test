@@ -1,15 +1,17 @@
 <odoo>
     <data>
-<!--
         <template id="listing">
           <ul>
             <li t-foreach="objects" t-as="object">
-              <a t-attf-href="#{ root }/objects/#{ object.id }">
+              <a t-attf-href="/boc/objects/#{ object.id }">
                 <t t-esc="object.display_name"/>
+                <t t-esc="object.description"/>
+
               </a>
             </li>
           </ul>
         </template>
+        
         <template id="object">
           <h1><t t-esc="object.display_name"/></h1>
           <dl>
@@ -19,6 +21,13 @@
             </t>
           </dl>
         </template>
--->
+        
+        <!--eula template
+        <template id="template_eula">
+          <h1><t t-esc="object.name"/></h1>
+          <dt><t t-esc="object.eulaContent"/></dt>
+          <dd><t t-esc="object.agree"/></dd>
+        </template>
+        -->
     </data>
 </odoo>

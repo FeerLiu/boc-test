@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+          <record id="eula1" model="boc.eula">
+            <field name="name">eula</field>
+            <field name="eulaContent">agreementagreementagreementagreementagreement
+            agreementagreementagreementagreementagreementagreementagreementagreement
+            agreementagreementagreementagreementagreementagreementagreementagreement
+            agreementagreementagreementagreementagreementagreementagreementagreement</field>
+          </record>
+    </data>
+</odoo>
