@@ -27,10 +27,10 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'data/eula_content.xml',
         'views/views.xml',
         'views/templates.xml',
         #'views/template_test.xml',
-        'data/eula_content.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

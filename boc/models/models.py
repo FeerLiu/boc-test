@@ -26,18 +26,19 @@ class eula(models.Model):
     _name = 'boc.eula'
     _description = 'boc.eula'
 
-    name = fields.Char(default="eula")
-    eulaContent = fields.Html(readonly=True)
-    agree = fields.Boolean(string="Agree", help="By checking this , you agree to the EULA.", default=False)
-    def trigger(self):
-        return {
-                  'type': 'ir.actions.act_window', 
-                  'name': 'EULA',
-                  'res_model': 'boc.eula',
-                  'res_id': 1,                  
-                  "views": [[False, "tree"], [False, "form"]],
-                  'target': 'new'
-        }
+    name = fields.Char(default = "Agreement Title", readonly=True)
+    eulaContent = fields.Text(default="agreement details...", readyonly = True)
+    agree = fields.Boolean(string="By checking this, you agree to the privacy.", 
+        help="By checking this , you agree to the privacy.", 
+        default=False)
+    #save agreement record    
+    @api.depends('eulaContent','agree')
+    def save_record(self):
+        for record  in self:
+            record.create([{'name': record.name,}, {'name': record.eulaContent,},{'agree': record.agree,},])
+        return True
+
+        
 
 class m_test(models.Model):
     _name = 'boc.m_test'

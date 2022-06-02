@@ -16,6 +16,31 @@
 
       
     <!-- eula-->
+    <record model="ir.ui.view" id="eula_list">
+      <field name="name">Eula content</field>
+      <field name="model">boc.eula</field>
+      <field name="arch" type="xml">
+        <form>
+          <!--header>
+            <field name="name"/>
+          </header-->
+          <sheet>
+            <field name="eulaContent"></field>
+            <group col = '1'>
+              <field name="agree"></field>
+            </group>
+          </sheet>
+          <footer>
+            <sheet>
+            <group>
+              <button type="object" name="save_record" string="Save"/>
+              <a href="/web/session/logout?redirect=/web" class="oe_button oe_highlight">I disagree</a>
+            </group>
+            </sheet>
+          </footer>
+        </form>
+      </field>
+    </record>
     
     <!--eula menu-->
     <menuitem id="main_eula_menu" name="EULA" sequence="0" action="eula_actions_server_trigger"/>
@@ -26,9 +51,16 @@
             <field name="model">boc.eula</field> 
             <field name="arch" type="xml">
               <form> 
-                    <div> 
-                        <field name="eulaContent"/>
-                    </div> 
+                    <header> 
+                      <field name="agree" widget="radio"/>
+                    </header>
+                    <list> 
+                        <field name="eulaContent">
+                            <attribute name="attrs">
+                              {'readonly': [('editable', '=', False)]}
+                            </attribute>
+                        </field>
+                    </list>
                     <footer>
                         <a href="/boc/" class="oe_button">I agree</a> 
                         <a href="/web/session/logout?redirect=/web" class="oe_button oe_highlight">I disagree</a>

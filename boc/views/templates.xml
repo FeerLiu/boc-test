@@ -23,11 +23,15 @@
         </template>
         
         <!--eula template
-        <template id="template_eula">
-          <h1><t t-esc="object.name"/></h1>
-          <dt><t t-esc="object.eulaContent"/></dt>
-          <dd><t t-esc="object.agree"/></dd>
-        </template>
         -->
+        <template id="template_eula">
+          <h1><t t-esc="template_eula.name"/></h1>
+          <dl>
+            <t t-foreach="template_eula._fields" t-as="field">
+              <dt><t t-esc="field"/></dt>
+              <dd><t t-esc="template_eula[field]"/></dd>
+            </t>
+          </dl>
+        </template>
     </data>
 </odoo>
